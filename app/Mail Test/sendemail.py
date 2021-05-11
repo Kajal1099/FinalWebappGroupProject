@@ -40,8 +40,7 @@ def sendemail(to, strHash):
     part1 = MIMEText(text, "plain")
     part2 = MIMEText(html, "html")
 
-    # Add HTML/plain-text parts to MIMEMultipart message
-    # The email client will try to render the last part first
+   
     message.attach(part1)
     message.attach(part2)
 
