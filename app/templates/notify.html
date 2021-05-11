@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <br><br>
+
+    <div class="card" class="m-5 p-2">
+        <h5 class="card-title">  {{ student.errCode }} - {{ student.errMessage }}</h5>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Error Code: {{ student.errCode }}</li>
+            <li class="list-group-item">Error Message: {{ student.errMessage }}</li>
+        </ul>
+    </div>
+    <form action="/{{ student.errNextPage }}" method="get">
+        <br><br><p>
+            <button type="submit" class="btn btn-danger">Click Here to Proceed</button>
+    </form>
+{% endblock %}
