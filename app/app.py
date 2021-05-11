@@ -59,7 +59,7 @@ def add_login():
                 VALUES (%s, %s,%s, %s) """
         cursor.execute(sql_insert_query, inputData)
         mysql.get_db().commit()
-        sendemail.sendemail(strEmail, strHash)
+        sendemail(strEmail, strHash)
         return render_template('login.html', title='Login Page')
     else:
         print('Login already exists', file=sys.stderr)
