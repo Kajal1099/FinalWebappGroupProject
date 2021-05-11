@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+    <h1>Student's Data</h1>
+<br>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Student's Name</th>
+        <th scope="col">Room</th>
+        <th scope="col">Class</th>
+        <th scope="col">Age</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for Students in students %}
+    <tr>
+        <td><a href="view/{{Student.id}}">{{ Student.Name }}</a></td>
+        <td>{{ Student.Room }}</td>
+        <td>{{ Student.Class }}</td>
+        <td>{{ Student.Age}}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
