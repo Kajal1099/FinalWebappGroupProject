@@ -112,20 +112,7 @@ def validateLogin(intHash):
         result = cursor.fetchall()
         return render_template('notify.html', title='Notify', student=result[0])
 
-@app.route('/view/<int:student_id>', methods=['GET'])
-def record_view(student_id):
-    cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM cls_students WHERE id =%s', student_id)
-    result = cursor.fetchall()
-    return render_template('view.html', title='View Form', student=result[0])
 
-
-@app.route('/edit/<int:student_id>', methods=['GET'])
-def form_edit_get(student_id):
-    cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM cls_students WHERE id =%s', student_id)
-    result = cursor.fetchall()
-    return render_template('edit.html', title='Edit Form', student=result[0])
 
 
 @app.route('/edit/<int:student_id>', methods=['POST'])
@@ -138,10 +125,6 @@ def form_update_post(student_id):
     mysql.get_db().commit()
     return redirect("/", code=302)
 
-
-@app.route('/Names/new', methods=['GET'])
-def form_insert_get():
-    return render_template('new.html', title='New student Form')
 
 
 @app.route('/Names/new', methods=['POST'])
